@@ -1,0 +1,18 @@
+application:
+  name: Squary
+  description: This application squares an integer number (m = n^2)
+  commandline: ./application ${n}
+  path: ./application
+  icon: C
+
+input:
+  - type: argument
+    name: n
+    description: An integer number to square
+    parser: int
+
+output:
+  - type: stdout
+    name: m
+    description: This is the number squared
+    parser: int

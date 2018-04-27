@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Squiggle running</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+<style>
+#squigglehere {
+	width: 120px;
+	background-color: white;
+	border-radius: 50%;
+	box-shadow: inset 0 3px 3px 1px #c5c5c5;
+	padding: 20px;
+}
+</style>
+  </head>
+  <body>
+	<section class="hero is-info">
+		<div class="hero-body">
+			<div class="level">
+				<div class="level-left">
+					<div class="container">
+						<h1 class="title">{{ nugget.title }}</h1>
+						<h2 class="subtitle">{{ nugget.description }}</h2>
+					</div>
+				</div>
+				<div class="level-right">
+					<div id="squigglehere"> 
+						<img src="/static/images/squiggle.png" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="columns">
+			<div class="column">
+				<div class="box">
+				<h1 class="subtitle">Input</h1>
+				<form id="myForm">
+				{% for input in nugget.input %}
+				<div class="field">
+					<label class="label">{{ input.description }} ({{ input.name }})</label>
+					<div class="control">
+						{% if input.parser == 'int' %}
+							<input name="{{ input.name }}" class="input" type="number">
+						{% elif input.parser == 'path' %}
+							<input name="{{ input.name }}" class="input" type="file" onchange="loadFile(event)">
+							<img id="previewImage" />
+						{% else %}
+							<input name="{{ input.name }}" class="input" type="text">
+						{% end %}
+					</div>
+				</div>
+				{% end %}
+				<div class="field is-grouped">
+  <div class="control">
+    <input type="submit" class="button is-link"></input>
+  </div>
+</div>
+				</form>
+				</div>
+			</div>
+			<div class="column">
+				<div class="box">
+				<h1 class="subtitle">Output</h1>
+				<form>
+				{% for output in nugget.output %}
+				<div class="field">
+					<label class="label">{{ output.description }} ({{ output.name }})</label>
+					<div class="control">
+					
+					{% if output.parser == 'image' %}
+					<img id="outputField"/>
+					{% else %}
+					<input id="outputField" class="input" type="text" readonly>
+					{% end %}
+					</div>
+				</div>
+				{% end %}
+				</form>
+				</div>
+			</div>
+		</div>
+	</section>
+
+<script>
+var loadFile = function(event) {
+  var output = document.getElementById('previewImage');
+  output.src = URL.createObjectURL(event.target.files[0]);
+};
+
+window.addEventListener("load", function () {
+  function sendData() {
+    var XHR = new XMLHttpRequest();
+
+    // Bind the FormData object and the form element
+    var FD = new FormData(form);
+
+    // Define what happens on successful data submission
+    XHR.addEventListener("load", function(event) {
+      var txt = event.target.responseText;
+      var out = document.getElementById('outputField');
+      if (out.tagName == 'IMG')
+          out.src = txt;
+      else
+          out.value = txt;
+    });
+
+    // Define what happens in case of error
+    XHR.addEventListener("error", function(event) {
+      alert('Oops! Something went wrong.');
+    });
+
+    // Set up our request
+    XHR.open("POST", "/app/");
+
+    // The data sent is what the user provided in the form
+    XHR.send(FD);
+  }
+ 
+  // Access the form element...
+  var form = document.getElementById("myForm");
+
+  // ...and take over its submit event.
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    sendData();
+  });
+});
+</script>
+
+  </body>
+</html>
