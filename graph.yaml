@@ -1,0 +1,18 @@
+application:
+  name: Graphviz
+  description: Create a graphviz graph from a dot definition file
+  commandline: dot -Tpng ${inputfile}
+
+input:
+ - type: argument
+   name: inputfile
+   description: File with the dot definition file
+   mimetype: text/plain
+   parser: path
+
+output:
+ - type: stdout
+   name: outputimage
+   description: This is the output image representation of the graph
+   mimetype: image/*
+   parser: image

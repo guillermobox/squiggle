@@ -1,0 +1,4 @@
+node_modules
+dist
+.vscode
+static/package-lock.json
