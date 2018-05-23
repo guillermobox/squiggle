@@ -1,7 +1,7 @@
 application:
   name: Posterizer
   description: Reduce the number of colors of an image using ImageMagick
-  commandline: convert ${image} +dither -colors ${colors} ${image}-converted
+  commandline: convert {image} +dither -colors {colors} {image}-converted
 
 input:
  - type: argument
@@ -17,7 +17,7 @@ input:
 
 output:
  - type: file
-   path: ${image}-converted
+   path: "{image}-converted"
    name: outputimage
    description: This is the image with the number of colors reduced
    mimetype: image/*

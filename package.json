@@ -1,0 +1,31 @@
+{
+  "name": "squiggle",
+  "version": "1.0.0",
+  "description": "Squiggle represents your scripts and code as interfaces",
+  "main": "index.js",
+  "scripts": {
+    "start": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guillermobox/squiggle.git"
+  },
+  "author": "Guillermo Indalecio",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/guillermobox/squiggle/issues"
+  },
+  "homepage": "https://github.com/guillermobox/squiggle#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "commander": "^2.15.1",
+    "electron": "^2.0.1",
+    "express": "^4.16.3",
+    "express-ws": "^3.0.0",
+    "js-yaml": "^3.11.0",
+    "mime-types": "^2.1.18",
+    "string-template": "^1.0.0",
+    "tmp": "0.0.33",
+    "ws": "^5.1.1"
+  }
+}

@@ -1,7 +1,7 @@
 application:
   name: Squary
   description: This application squares an integer number (m = n^2)
-  commandline: ./application ${n}
+  commandline: ./application {n}
   icon: C
 
 input:

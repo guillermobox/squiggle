@@ -32,7 +32,7 @@ class RESTStore extends Store {
     this.data = []
     this.readCollection()
     this.eventHandler = this.eventHandler.bind(this)
-    setInterval(this.readCollection.bind(this), 3000);
+    //setInterval(this.readCollection.bind(this), 3000);
   }
   readCollection () {
     fetch(this.url)

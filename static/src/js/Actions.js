@@ -1,17 +1,15 @@
 import dispatcher from "./Dispatcher";
 
-export function createResource(data) {
+export function runNugget(data) {
   dispatcher.publish({
-    event: 'CREATE',
-    name: 'RESOURCE',
+    event: 'RUN',
     data
   });
 }
 
-export function createJob(data) {
+export function receiveNugget(data) {
   dispatcher.publish({
-    event: 'CREATE',
-    name: 'JOB',
+    event: 'RECEIVE',
     data
   });
 }
