@@ -102,7 +102,6 @@ app.get('/nugget/', (request, response) => {
 app.ws('/nugget/', function (ws, req) {
     ws.on('message', function (msg) {
         msg = JSON.parse(msg);
-
         /* unpack the data from the input message */
         var nuggetPath = msg.path;
 
@@ -110,7 +109,6 @@ app.ws('/nugget/', function (ws, req) {
         msg.input.forEach(element => {
             input[element.name] = element.value;
         });
-
         /* try to find the nugget */
         var mynugget = null;
         for (var i in nuggets) {

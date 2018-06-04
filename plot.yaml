@@ -1,0 +1,19 @@
+application:
+  name: matplotlib
+  description: Plot some data with matplotlib
+  commandline: python3 plot.py {inputfile}
+
+input:
+ - type: argument
+   name: inputfile
+   description: Data in two columns
+   mimetype: text/plain
+   parser: path
+
+output:
+ - type: file
+   path: out.png
+   name: outputimage
+   description: This is the image with the number of colors reduced
+   mimetype: image/png
+   parser: image

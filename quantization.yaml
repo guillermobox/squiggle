@@ -5,20 +5,21 @@ application:
 
 input:
  - type: argument
-   name: colors
-   description: Number of colors to keep in the image
-   default: 5
-   parser: int
- - type: argument
    name: image
    description: Image to convert
    mimetype: image/*
    parser: path
+ - type: argument
+   name: colors
+   description: Number of colors to keep in the image
+   default: 5
+   parser: int
+
 
 output:
  - type: file
    path: "{image}-converted"
    name: outputimage
-   description: This is the image with the number of colors reduced
+   description: Output image with less colors
    mimetype: image/*
    parser: image

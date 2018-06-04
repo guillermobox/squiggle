@@ -1,0 +1,90 @@
+#squigglehead {
+    display: none;
+}
+
+#squiggle-container {
+    min-height: 100vh;
+    margin: auto;
+}
+
+body {
+    background-color: #f5f5f5;
+}
+
+#squiggle-container {
+    display: flex;
+}
+
+#squiggle-nuggets {
+    padding: 20px 0 20px 20px;
+    flex: 2 0 600px;
+    > div {
+        max-width: 600px;
+    }
+}
+
+#squiggle-nav {
+    flex: 1 0 300px;
+    background-color: white;
+    border-right: 1px solid #ccc;
+    header {
+        padding: 20px;
+        margin-left: auto;
+        width: 300px;
+        img {
+            vertical-align: middle;
+        }
+        div {
+            font-size: 20px;
+            display: inline-block;
+            font-weight: bold;
+            color: #106BA3;
+            margin-left: 10px;
+        }
+    }
+    ul {
+        display: block;
+        margin: 0px;
+        padding: 0px 20px;
+        margin-left: auto;
+        width: 300px;
+        li {
+            list-style: none;
+            cursor: pointer;
+            padding: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+            h5 {
+                margin: 5px auto;
+            }
+        }
+        li:hover {
+            background-color: #f5f5f5;
+        }
+    }
+}
+
+.aceeditor { 
+    width: 600px;
+    height: 400px;
+}
+
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 0px;
+    >div {
+      flex: 0 0 300px;
+    }
+  }
+
+form img {
+    max-width: 300px;
+    max-height: 200px;
+}
+
+pre.tabpre {
+    overflow: scroll;
+    height: 300px;
+}

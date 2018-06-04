@@ -25,6 +25,7 @@ module.exports = {
     filename: "js/nuggetClient.min.js"
   },
   plugins: [
+    new WebpackShellPlugin({onBuildStart:['lessc src/css/squiggle.less src/css/squiggle.css']}),
     new CopyWebpackPlugin([
       {from: "src/index.html", to: "index.html"},
       {from: "src/images/", to: "images/"},
